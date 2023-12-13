@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebApplication2.Models.user>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fromDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.toDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.leaderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.projectClient)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fromDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.toDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.leaderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.projectClient)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                <button type="button" onclick="deletefn(@item.id)">Delete</button>
+                <button type="button" onclick="editfn(@item.id)">Edit</button>
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
